@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublicationsTable extends Migration
+class CreateAffiliationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreatePublicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('affiliations', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->text('abstract')->nullable();
         });
     }
 
@@ -26,6 +25,6 @@ class CreatePublicationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('publications');
+        Schema::drop('affiliations');
     }
 }
