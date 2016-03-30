@@ -54,7 +54,7 @@ return [
         |
         */
 
-        'account_suffix' => '@acme.org',
+        'account_suffix' => env('LDAP_ACCOUNT_SUFFIX', '@acme.org'),
 
         /*
         |--------------------------------------------------------------------------
@@ -68,7 +68,11 @@ return [
         |
         */
 
-        'domain_controllers' => ['corp-dc1.corp.acme.org', 'corp-dc2.corp.acme.org'],
+
+        'domain_controllers' => [
+            env('LDAP_DOMAIN_CONTROLLER', 'corp-dc1.corp.acme.org'),
+        ],
+
 
         /*
         |--------------------------------------------------------------------------
@@ -79,7 +83,7 @@ return [
         |
         */
 
-        'port' => 389,
+        'port' => env('LDAP_PORT', '389'),
 
         /*
         |--------------------------------------------------------------------------
@@ -95,7 +99,7 @@ return [
         |
         */
 
-        'base_dn' => 'dc=corp,dc=acme,dc=org',
+        'base_dn' => env('LDAP_BASE_DN', 'dc=corp,dc=acme,dc=org'),
 
         /*
         |--------------------------------------------------------------------------
