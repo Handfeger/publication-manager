@@ -3,6 +3,9 @@ php:
   - 5.6
   - 7.0
 
+before_install:
+  - echo "extension=ldap.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+
 before_script:
   - cp .env.travis .env
   - mysql -e 'create database homestead_test'
