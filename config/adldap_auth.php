@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'login_attribute' => 'samaccountname',
+    'login_attribute' => 'cn',
 
     /*
     |--------------------------------------------------------------------------

@@ -113,7 +113,7 @@ return [
         |
         */
 
-        'admin_account_suffix' => '@acme.org',
+        'admin_account_suffix' => NULL,
 
         /*
         |--------------------------------------------------------------------------
@@ -127,8 +127,8 @@ return [
         |
         */
 
-        'admin_username' => 'username',
-        'admin_password' => 'password',
+        'admin_username' => NULL,
+        'admin_password' => NULL,
 
         /*
         |--------------------------------------------------------------------------
