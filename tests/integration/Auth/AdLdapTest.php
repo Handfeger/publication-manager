@@ -10,9 +10,13 @@ class AdLdapTest extends TestCase
 
     public $ldap_config = [];
 
+    public $skipLdap    = false;
+
     public function setUp()
     {
         parent::setUp();
+
+        $this->skipLdap = env('LDAP_SKIP_TESTS', false);
 
         $this->ldap_config = [
             'account_suffix'     => env('LDAP_ACCOUNT_SUFFIX'),
@@ -32,6 +36,9 @@ class AdLdapTest extends TestCase
      */
     public function can_connect_to_ldap_server()
     {
+        if ($this->skipLdap) {
+            return;
+        }
         $adldap = new \Adldap\Adldap($this->ldap_config);
 
         $this->assertTrue($adldap->getConnection()->isBound());
@@ -46,6 +53,10 @@ class AdLdapTest extends TestCase
      */
     public function can_login_with_user()
     {
+        if ($this->skipLdap) {
+            return;
+        }
+
         $auth = Auth::attempt(
             [
                 'username' => env('LDAP_TEST_USER'),
