@@ -11,11 +11,29 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-    ];
-});
+use App\Journal;
+
+$factory->define(
+    App\User::class,
+    function (Faker\Generator $faker) {
+        return [
+            'name'           => $faker->name,
+            'username'       => $faker->userName,
+            'password'       => bcrypt(str_random(10)),
+            'remember_token' => str_random(10),
+        ];
+    }
+);
+
+$factory->define(
+    Journal::class,
+    function (Faker\Generator $faker) {
+        return [
+            'title' => $faker->sentence(4),
+            'short_title' => $faker->word,
+            'url' => $faker->url,
+        ];
+
+
+    }
+);
